@@ -1,0 +1,7 @@
+services:
+  - type: static
+    name: arlington-racial-profiling
+    root: webapp
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeploy: true
