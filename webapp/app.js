@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const data = await fetchData();
     state.data = data;
+    state.tableMode = "count";
     renderCards(data);
     buildCharts(data);
-    buildTable(data);
+    buildTable(data, state.tableMode);
     renderNarrative(data);
     bindActions();
   } catch (err) {
@@ -95,6 +96,7 @@ function buildCharts(data) {
   buildSearchChart(data);
   buildReasonsChart(data);
   buildContrabandChart(data);
+  buildRateChart(data);
 }
 
 function buildStopsChart(data) {
@@ -242,12 +244,75 @@ function buildContrabandChart(data) {
   });
 }
 
+function buildRateChart(data) {
+  const labels = data.meta.years;
+  const searchRate = data.meta.years.map((year) => {
+    const race = data.race_breakdown.find((r) => r.year === year);
+    const s = data.searches.find((s) => s.year === year);
+    return share(s.search_yes, race.total_stops);
+  });
+  const hitRate = data.meta.years.map((year) => {
+    const s = data.searches.find((s) => s.year === year);
+    return share(s.contraband_yes, s.search_yes);
+  });
+
+  state.charts.rate?.destroy();
+  state.charts.rate = new Chart(document.getElementById("rateChart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Search rate (searches per stop)",
+          data: searchRate,
+          borderColor: "#0d9488",
+          backgroundColor: "rgba(13,148,136,0.12)",
+          tension: 0.25,
+          pointRadius: 4,
+        },
+        {
+          label: "Contraband hit rate (hits per search)",
+          data: hitRate,
+          borderColor: "#f97316",
+          backgroundColor: "rgba(249,115,22,0.12)",
+          tension: 0.25,
+          pointRadius: 4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: "bottom" }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.formattedValue}%` } } },
+      scales: {
+        y: { beginAtZero: true, max: Math.max(...hitRate, ...searchRate, 5) + 5, ticks: { callback: (v) => `${v}%` } },
+      },
+    },
+  });
+}
+
 function buildTable(data) {
   const body = document.querySelector("#summaryTable tbody");
+  const mode = state.tableMode || "count";
   body.innerHTML = data.meta.years
     .map((year) => {
       const race = data.race_breakdown.find((r) => r.year === year);
       const search = data.searches.find((s) => s.year === year);
+      if (mode === "percent") {
+        const pct = (v, base) => `${share(v, base).toFixed(1)}%`;
+        return `
+          <tr>
+            <td>${year}</td>
+            <td>100%</td>
+            <td>${pct(race.race_black, race.total_stops)}</td>
+            <td>${pct(race.race_hispanic, race.total_stops)}</td>
+            <td>${pct(race.race_white, race.total_stops)}</td>
+            <td>${pct(race.race_asian, race.total_stops)}</td>
+            <td>${pct(race.race_native, race.total_stops)}</td>
+            <td>${pct(search.search_yes, race.total_stops)}</td>
+            <td>${pct(search.contraband_yes, race.total_stops)}</td>
+          </tr>
+        `;
+      }
       return `
         <tr>
           <td>${year}</td>
@@ -311,6 +376,16 @@ function bindActions() {
   document.getElementById("downloadPdf").addEventListener("click", downloadPdf);
   document.getElementById("printView").addEventListener("click", () => window.print());
   document.getElementById("refreshNarrative").addEventListener("click", () => renderNarrative(state.data));
+  const toggle = document.getElementById("tableModeToggle");
+  toggle.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-mode]");
+    if (!btn) return;
+    const mode = btn.dataset.mode;
+    state.tableMode = mode;
+    [...toggle.querySelectorAll("button")].forEach((b) => b.classList.toggle("primary", b === btn));
+    [...toggle.querySelectorAll("button")].forEach((b) => b.classList.toggle("ghost", b !== btn));
+    buildTable(state.data);
+  });
 }
 
 async function downloadPdf() {

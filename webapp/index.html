@@ -17,7 +17,7 @@
         <p class="eyebrow">City of Arlington, Texas</p>
         <h1>Racial Profiling Report <span class="muted">(2019-2024)</span></h1>
         <p class="lede">
-          Mobile-first briefing with race, search, and contraband trends drawn directly from the DPS racial profiling dataset.
+          Mobile-first briefing with race, search, and contraband trends drawn directly from the DPS racial profiling dataset. Built for clarity, inquiry, and PDF-ready sharing.
         </p>
         <div class="hero-actions">
           <button id="downloadPdf" class="btn primary">Download PDF</button>
@@ -41,6 +41,17 @@
         </div>
       </div>
       <canvas id="stopsChart" height="120"></canvas>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Rates</p>
+          <h2>Search rate vs contraband hit rate</h2>
+          <p class="muted">Searches per stop (rate) compared with the share of searches finding contraband.</p>
+        </div>
+      </div>
+      <canvas id="rateChart" height="140"></canvas>
     </section>
 
     <section class="panel">
@@ -91,11 +102,44 @@
       <div id="narrativeBody" class="muted"></div>
     </section>
 
+    <section class="panel two-col">
+      <div>
+        <div class="panel-head">
+          <p class="eyebrow">Legal + methodology</p>
+          <h2>Texas CCP 2.132 context</h2>
+        </div>
+        <ul class="pill-list">
+          <li><strong>Scope:</strong> Arlington Police submissions, DPS racial profiling reports 2019-2024.</li>
+          <li><strong>Law:</strong> Texas Code of Criminal Procedure 2.132 (racial profiling policy, data reporting, annual analysis).</li>
+          <li><strong>Exclusions:</strong> Arlington Fire entries are exempt/zero-stops and omitted from charts.</li>
+          <li><strong>Data fields:</strong> Stops, race categories, searches, reasons, contraband, “race known prior.”</li>
+          <li><strong>Limitations:</strong> Self-reported agency data; “race known prior” rarely true; no outcome severity granularity.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel-head">
+          <p class="eyebrow">Inquiry prompts</p>
+          <h2>Questions to ask</h2>
+        </div>
+        <ol class="pill-list numbered">
+          <li>What policies drive search decisions, and are consent searches audited for equity?</li>
+          <li>Why do “race known prior” rates stay near zero—are perception fields under-reported?</li>
+          <li>Are contraband hit rates consistent across race groups and search reasons?</li>
+          <li>What community oversight reviews annual CCP 2.132 reports, and how are findings shared?</li>
+          <li>Do stop trends align with population shifts, enforcement priorities, or tech changes (e.g., cameras)?</li>
+        </ol>
+      </div>
+    </section>
+
     <section class="panel table-panel">
       <div class="panel-head">
         <div>
           <p class="eyebrow">Tabular view</p>
           <h2>Yearly summary</h2>
+        </div>
+        <div class="hero-actions compact" id="tableModeToggle">
+          <button data-mode="count" class="btn small primary">Counts</button>
+          <button data-mode="percent" class="btn small ghost">Percent of total</button>
         </div>
       </div>
       <div class="table-wrap">

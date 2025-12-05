@@ -101,6 +101,9 @@ p {
   flex-wrap: wrap;
   margin-top: 12px;
 }
+.hero-actions.compact {
+  margin-top: 0;
+}
 
 .btn {
   border: 1px solid var(--border);
@@ -118,6 +121,9 @@ p {
   color: #ffffff;
   border-color: var(--accent);
   box-shadow: 0 10px 30px rgba(13, 148, 136, 0.25);
+}
+.btn.active {
+  outline: 2px solid rgba(13, 148, 136, 0.6);
 }
 
 .btn.ghost {
@@ -171,6 +177,31 @@ p {
   box-shadow: var(--shadow);
   padding: 18px 18px 12px;
   margin-bottom: 18px;
+}
+
+.pill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.pill-list li {
+  background: rgba(13, 148, 136, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--ink);
+}
+
+.pill-list.numbered {
+  list-style: decimal inside;
+  padding-left: 0;
+}
+
+.pill-list.numbered li {
+  background: rgba(15, 23, 42, 0.04);
 }
 
 .panel-head {
