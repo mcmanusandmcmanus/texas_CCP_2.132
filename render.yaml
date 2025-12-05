@@ -1,5 +1,6 @@
 services:
-  - type: static_site
+  - type: web
+    env: static
     name: arlington-racial-profiling
     root: webapp
     buildCommand: ""
