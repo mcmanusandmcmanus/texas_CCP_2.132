@@ -40,7 +40,9 @@
           <p class="muted">Arlington Police Department only; fire department reports are exempt with zero stops.</p>
         </div>
       </div>
-      <canvas id="stopsChart" height="120"></canvas>
+      <div class="chart-wrap">
+        <canvas id="stopsChart"></canvas>
+      </div>
     </section>
 
     <section class="panel">
@@ -51,7 +53,9 @@
           <p class="muted">Searches per stop (rate) compared with the share of searches finding contraband.</p>
         </div>
       </div>
-      <canvas id="rateChart" height="140"></canvas>
+      <div class="chart-wrap">
+        <canvas id="rateChart"></canvas>
+      </div>
     </section>
 
     <section class="panel">
@@ -61,7 +65,9 @@
           <h2>Stops by race (stacked %)</h2>
         </div>
       </div>
-      <canvas id="raceChart" height="140"></canvas>
+      <div class="chart-wrap">
+        <canvas id="raceChart"></canvas>
+      </div>
     </section>
 
     <section class="panel two-col">
@@ -70,14 +76,18 @@
           <p class="eyebrow">Search activity</p>
           <h2>Searches vs no-search</h2>
         </div>
-        <canvas id="searchChart" height="150"></canvas>
+        <div class="chart-wrap">
+          <canvas id="searchChart"></canvas>
+        </div>
       </div>
       <div>
         <div class="panel-head">
           <p class="eyebrow">Search reasons</p>
           <h2>Why searches occurred</h2>
         </div>
-        <canvas id="reasonsChart" height="150"></canvas>
+        <div class="chart-wrap">
+          <canvas id="reasonsChart"></canvas>
+        </div>
       </div>
     </section>
 
@@ -88,7 +98,9 @@
           <h2>Contraband discovery vs searches</h2>
         </div>
       </div>
-      <canvas id="contrabandChart" height="140"></canvas>
+      <div class="chart-wrap">
+        <canvas id="contrabandChart"></canvas>
+      </div>
     </section>
 
     <section class="panel narrative" id="narrative">
@@ -112,8 +124,8 @@
           <li><strong>Scope:</strong> Arlington Police submissions, DPS racial profiling reports 2019-2024.</li>
           <li><strong>Law:</strong> Texas Code of Criminal Procedure 2.132 (racial profiling policy, data reporting, annual analysis).</li>
           <li><strong>Exclusions:</strong> Arlington Fire entries are exempt/zero-stops and omitted from charts.</li>
-          <li><strong>Data fields:</strong> Stops, race categories, searches, reasons, contraband, “race known prior.”</li>
-          <li><strong>Limitations:</strong> Self-reported agency data; “race known prior” rarely true; no outcome severity granularity.</li>
+          <li><strong>Data fields:</strong> Stops, race categories, searches, reasons, contraband, "race known prior."</li>
+          <li><strong>Limitations:</strong> Self-reported agency data; "race known prior" rarely true; no outcome severity granularity.</li>
         </ul>
       </div>
       <div>
@@ -123,7 +135,7 @@
         </div>
         <ol class="pill-list numbered">
           <li>What policies drive search decisions, and are consent searches audited for equity?</li>
-          <li>Why do “race known prior” rates stay near zero—are perception fields under-reported?</li>
+          <li>Why do "race known prior" rates stay near zero—are perception fields under-reported?</li>
           <li>Are contraband hit rates consistent across race groups and search reasons?</li>
           <li>What community oversight reviews annual CCP 2.132 reports, and how are findings shared?</li>
           <li>Do stop trends align with population shifts, enforcement priorities, or tech changes (e.g., cameras)?</li>

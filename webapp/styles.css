@@ -230,8 +230,8 @@ p {
 
 canvas {
   width: 100% !important;
+  height: 100% !important;
   max-width: 100%;
-  min-height: 280px;
 }
 
 .narrative {
@@ -249,6 +249,15 @@ canvas {
   padding: 10px 8px;
   border-bottom: 1px solid var(--border);
   text-align: right;
+}
+
+.chart-wrap {
+  position: relative;
+  height: clamp(240px, 45vw, 380px);
+}
+
+.panel.two-col .chart-wrap {
+  height: clamp(240px, 50vw, 340px);
 }
 
 .table-panel th:first-child,
@@ -310,8 +319,8 @@ canvas {
     padding: 8px 6px;
     font-size: 13px;
   }
-  canvas {
-    min-height: 200px;
+  .chart-wrap {
+    height: clamp(200px, 70vw, 320px);
   }
 }
 
@@ -334,8 +343,8 @@ canvas {
   .table-panel td {
     font-size: 12px;
   }
-  canvas {
-    min-height: 180px;
+  .chart-wrap {
+    height: clamp(180px, 80vw, 260px);
   }
 }
 
