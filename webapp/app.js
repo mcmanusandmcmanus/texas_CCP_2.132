@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function fetchData() {
-  const res = await fetch("./data/arlington_summary.json");
-  if (!res.ok) throw new Error("Failed to load summary JSON");
+  const res = await fetch("/data/arlington_summary.json");
+  if (!res.ok) {
+    throw new Error(`Failed to load summary JSON (status ${res.status})`);
+  }
   return res.json();
 }
 
