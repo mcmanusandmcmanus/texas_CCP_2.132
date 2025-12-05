@@ -2,5 +2,4 @@ services:
   - type: web
     name: arlington-racial-profiling
     env: static
-    root: webapp
-    staticPublishPath: .
+    staticPublishPath: webapp
