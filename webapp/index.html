@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City of Arlington, TX - Racial Profiling Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Libre+Franklin:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <main class="report-shell" id="report">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">City of Arlington, Texas</p>
+        <h1>Racial Profiling Report <span class="muted">(2019-2024)</span></h1>
+        <p class="lede">
+          Mobile-first briefing with race, search, and contraband trends drawn directly from the DPS racial profiling dataset.
+        </p>
+        <div class="hero-actions">
+          <button id="downloadPdf" class="btn primary">Download PDF</button>
+          <button id="printView" class="btn ghost">Printer-friendly view</button>
+        </div>
+      </div>
+      <div class="badge">
+        <p>Data source</p>
+        <strong>Texas DPS<br />2019-2024</strong>
+      </div>
+    </header>
+
+    <section class="cards" id="statCards"></section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Stops over time</p>
+          <h2>Yearly total stops</h2>
+          <p class="muted">Arlington Police Department only; fire department reports are exempt with zero stops.</p>
+        </div>
+      </div>
+      <canvas id="stopsChart" height="120"></canvas>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Race share</p>
+          <h2>Stops by race (stacked %)</h2>
+        </div>
+      </div>
+      <canvas id="raceChart" height="140"></canvas>
+    </section>
+
+    <section class="panel two-col">
+      <div>
+        <div class="panel-head">
+          <p class="eyebrow">Search activity</p>
+          <h2>Searches vs no-search</h2>
+        </div>
+        <canvas id="searchChart" height="150"></canvas>
+      </div>
+      <div>
+        <div class="panel-head">
+          <p class="eyebrow">Search reasons</p>
+          <h2>Why searches occurred</h2>
+        </div>
+        <canvas id="reasonsChart" height="150"></canvas>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Contraband</p>
+          <h2>Contraband discovery vs searches</h2>
+        </div>
+      </div>
+      <canvas id="contrabandChart" height="140"></canvas>
+    </section>
+
+    <section class="panel narrative" id="narrative">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Auto-narrative</p>
+          <h2>Story at a glance</h2>
+        </div>
+        <button id="refreshNarrative" class="btn ghost small">Refresh narrative</button>
+      </div>
+      <div id="narrativeBody" class="muted"></div>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Tabular view</p>
+          <h2>Yearly summary</h2>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="summaryTable">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Total stops</th>
+              <th>Black</th>
+              <th>Hispanic</th>
+              <th>White</th>
+              <th>Asian</th>
+              <th>Native</th>
+              <th>Searches</th>
+              <th>Contraband found</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="./app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "department": "Arlington Police Department, TX",
+    "source_csv": "tx_data_racial_profiling_2019to2024.csv",
+    "generated_at_utc": "2025-12-05T02:25:34Z",
+    "years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "note": "Fire department rows are exempt and report zero stops; only police rows are included."
+  },
+  "totals_by_year": {
+    "2019": 117081,
+    "2020": 76153,
+    "2021": 60073,
+    "2022": 61078,
+    "2023": 64686,
+    "2024": 83335
+  },
+  "race_breakdown": [
+    {
+      "year": 2019,
+      "race_black": 43903,
+      "race_white": 28926,
+      "race_hispanic": 36269,
+      "race_asian": 7916,
+      "race_native": 67,
+      "race_known_yes": 1891,
+      "race_known_no": 115190,
+      "total_stops": 117081
+    },
+    {
+      "year": 2020,
+      "race_black": 28989,
+      "race_white": 22339,
+      "race_hispanic": 19919,
+      "race_asian": 4854,
+      "race_native": 52,
+      "race_known_yes": 1613,
+      "race_known_no": 74540,
+      "total_stops": 76153
+    },
+    {
+      "year": 2021,
+      "race_black": 23280,
+      "race_white": 16136,
+      "race_hispanic": 16610,
+      "race_asian": 3994,
+      "race_native": 53,
+      "race_known_yes": 957,
+      "race_known_no": 59116,
+      "total_stops": 60073
+    },
+    {
+      "year": 2022,
+      "race_black": 24094,
+      "race_white": 15398,
+      "race_hispanic": 17301,
+      "race_asian": 4222,
+      "race_native": 63,
+      "race_known_yes": 1068,
+      "race_known_no": 60010,
+      "total_stops": 61078
+    },
+    {
+      "year": 2023,
+      "race_black": 25399,
+      "race_white": 15965,
+      "race_hispanic": 18545,
+      "race_asian": 4689,
+      "race_native": 88,
+      "race_known_yes": 1303,
+      "race_known_no": 63383,
+      "total_stops": 64686
+    },
+    {
+      "year": 2024,
+      "race_black": 29713,
+      "race_white": 19751,
+      "race_hispanic": 27442,
+      "race_asian": 6276,
+      "race_native": 153,
+      "race_known_yes": 1761,
+      "race_known_no": 81574,
+      "total_stops": 83335
+    }
+  ],
+  "searches": [
+    {
+      "year": 2019,
+      "search_yes": 5186,
+      "search_no": 111895,
+      "search_reason_consent": 313,
+      "search_reason_probable": 3038,
+      "search_reason_inventory": 1047,
+      "search_reason_incident": 788,
+      "contraband_yes": 2143,
+      "contraband_no": 3043
+    },
+    {
+      "year": 2020,
+      "search_yes": 3524,
+      "search_no": 72629,
+      "search_reason_consent": 218,
+      "search_reason_probable": 2404,
+      "search_reason_inventory": 483,
+      "search_reason_incident": 419,
+      "contraband_yes": 1659,
+      "contraband_no": 1865
+    },
+    {
+      "year": 2021,
+      "search_yes": 2893,
+      "search_no": 57180,
+      "search_reason_consent": 123,
+      "search_reason_probable": 2134,
+      "search_reason_inventory": 267,
+      "search_reason_incident": 369,
+      "contraband_yes": 1490,
+      "contraband_no": 1403
+    },
+    {
+      "year": 2022,
+      "search_yes": 2890,
+      "search_no": 58188,
+      "search_reason_consent": 140,
+      "search_reason_probable": 2124,
+      "search_reason_inventory": 211,
+      "search_reason_incident": 415,
+      "contraband_yes": 1443,
+      "contraband_no": 1447
+    },
+    {
+      "year": 2023,
+      "search_yes": 2832,
+      "search_no": 61854,
+      "search_reason_consent": 72,
+      "search_reason_probable": 1912,
+      "search_reason_inventory": 319,
+      "search_reason_incident": 529,
+      "contraband_yes": 1307,
+      "contraband_no": 1525
+    },
+    {
+      "year": 2024,
+      "search_yes": 2768,
+      "search_no": 80567,
+      "search_reason_consent": 75,
+      "search_reason_probable": 1838,
+      "search_reason_inventory": 305,
+      "search_reason_incident": 550,
+      "contraband_yes": 1317,
+      "contraband_no": 1451
+    }
+  ]
+}
