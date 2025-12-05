@@ -90,6 +90,7 @@ function renderCards(data) {
 function buildCharts(data) {
   Chart.defaults.font.family = '"Space Grotesk", "Libre Franklin", system-ui, sans-serif';
   Chart.defaults.color = "#0f172a";
+  Chart.defaults.maintainAspectRatio = false;
 
   buildStopsChart(data);
   buildRaceChart(data);

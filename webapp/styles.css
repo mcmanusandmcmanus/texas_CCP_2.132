@@ -101,6 +101,7 @@ p {
   flex-wrap: wrap;
   margin-top: 12px;
 }
+
 .hero-actions.compact {
   margin-top: 0;
 }
@@ -114,6 +115,7 @@ p {
   cursor: pointer;
   font-weight: 600;
   transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.2s ease;
+  font-size: 15px;
 }
 
 .btn.primary {
@@ -132,7 +134,7 @@ p {
 
 .btn.small {
   padding: 8px 12px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .btn:hover {
@@ -220,6 +222,7 @@ p {
 
 canvas {
   width: 100% !important;
+  max-width: 100%;
 }
 
 .narrative {
@@ -254,6 +257,76 @@ canvas {
   }
   .panel {
     padding: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .report-shell {
+    padding: 20px 14px 40px;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .hero {
+    padding: 16px;
+    gap: 12px;
+    text-align: center;
+  }
+  .hero-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  .badge {
+    min-width: auto;
+    text-align: center;
+  }
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  .card .value {
+    font-size: 24px;
+  }
+  .panel {
+    padding: 14px;
+  }
+  .panel-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .table-panel th,
+  .table-panel td {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+  canvas {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    padding: 12px;
+  }
+  .table-panel th,
+  .table-panel td {
+    font-size: 12px;
+  }
+  canvas {
+    min-height: 180px;
   }
 }
 
