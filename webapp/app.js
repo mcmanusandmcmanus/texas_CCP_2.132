@@ -293,6 +293,10 @@ function buildRateChart(data) {
 function buildTable(data) {
   const body = document.querySelector("#summaryTable tbody");
   const mode = state.tableMode || "count";
+  const contrabandHeader = document.getElementById("contrabandHeader");
+  contrabandHeader.textContent =
+    mode === "percent" ? "Contraband found (% of searches)" : "Contraband found";
+
   body.innerHTML = data.meta.years
     .map((year) => {
       const race = data.race_breakdown.find((r) => r.year === year);
@@ -309,7 +313,7 @@ function buildTable(data) {
             <td>${pct(race.race_asian, race.total_stops)}</td>
             <td>${pct(race.race_native, race.total_stops)}</td>
             <td>${pct(search.search_yes, race.total_stops)}</td>
-            <td>${pct(search.contraband_yes, race.total_stops)}</td>
+            <td>${pct(search.contraband_yes, search.search_yes)}</td>
           </tr>
         `;
       }
@@ -411,6 +415,8 @@ function percentChange(oldVal, newVal) {
 }
 
 function share(part, whole) {
-  if (!whole) return 0;
-  return (part / whole) * 100;
+  const num = Number(part) || 0;
+  const den = Number(whole) || 0;
+  if (!den) return 0;
+  return (num / den) * 100;
 }
